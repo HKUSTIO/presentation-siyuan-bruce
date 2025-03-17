@@ -41,13 +41,15 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{hyperref}
+% add page number
+\setbeamertemplate{footline}[frame number]
 
 % Title page information
-\title{Presentation Title}
-\subtitle{Subtitle}
-\author{Your Name}
+\title{Structural Analysis of Vertical Contracting}
+\subtitle{Empirical Framework}
+\author{Siyuan (Bruce) Jin,\\3rd Year in Information Systems}
 \institute{Hong Kong University of Science and Technology}
-\date{\today}
+\date{March, 2025}
 
 \begin{document}
 
@@ -56,59 +58,649 @@
     \titlepage
 \end{frame}
 
-% Table of contents
-\begin{frame}{Outline}
-    \tableofcontents
-\end{frame}
-
-% Section 1
-\section{Introduction}
+% Slide 1: Introduction
 \begin{frame}{Introduction}
     \begin{itemize}
-        \item First point
-        \item Second point
-        \item Third point
+        % \item This section focuses on an empirical framework for analyzing vertical contracting.
+        \item Focus: theoretical insights into industry models to estimate firm behavior.
+        \item Framework involves:
+        \begin{enumerate}
+            \item Supply-side actions (Stage 1)
+            \item Demand-side actions (Stage 2)
+        \end{enumerate}
+        \item Outcomes modeled over single or multiple time periods.
     \end{itemize}
 \end{frame}
 
-% Section 2
-\section{Methods}
-\begin{frame}{Methods}
-    \begin{block}{Important Block}
-        Key information goes here
-    \end{block}
-    
+% Slide 2: Two-Stage Framework
+\begin{frame}{Two-Stage Framework for Analysis}
     \begin{itemize}
-        \item Method 1
-        \item Method 2
+        \item Researchers often model vertical contracting using a two-stage framework.
+        \item Stage 1: Supply
+        \begin{itemize}
+            \item Firms negotiate contracts and take payoff-relevant actions (e.g., investment, pricing).
+        \end{itemize}
+        \item Stage 2: Demand
+        \begin{itemize}
+            \item Consumers purchase products/services provided by upstream and downstream firms.
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
-% Section 3
-\section{Results}
-\begin{frame}{Results}
-    \begin{columns}
-        \column{0.5\textwidth}
+% Slide 5: Contracts
+\begin{frame}{Contracts}
+    \begin{itemize}
+        \item Contracts represent agreements between upstream and downstream firms.
+        \item Denoted as:
+        \[
+        C_{ij} \in \mathbb{C}
+        \]
+        \item Where:
         \begin{itemize}
-            \item Result 1
-            \item Result 2
+            \item \(C_{ij}\): Contract between upstream firm \(i\) and downstream firm \(j\).
+            \item \(\mathbb{C}\): Set of feasible contracts.
+        \end{itemize}
+        \item Null contract (\(C_0\)) represents the disagreement (no contract) outcome.
+    \end{itemize}
+\end{frame}
+
+% Slide 6: Payoff-Relevant Actions
+\begin{frame}{Payoff-Relevant Actions}
+    \begin{itemize}
+        \item Actions not explicitly specified in contracts but affect payoffs.
+        \item Denoted by:
+        \[
+        a = \{a_0, a_1(\mathbb{C}, a_0)\}
+        \]
+        \item Where:
+        \begin{itemize}
+            \item \(a_0\): Actions chosen simultaneously with contracts.
+            \item \(a_1(\mathbb{C}, a_0)\): Actions chosen after contracts and initial actions.
+        \end{itemize}
+        \item Examples:
+        \begin{itemize}
+            \item Downstream pricing, product availability.
+            \item Effort provision or investment.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 7: Payoff Representation
+\begin{frame}{Payoff Representation}
+    \textbf{Detailed Representation:}
+    \begin{itemize}
+        \item Payoffs for each upstream firm \(i\) and downstream firm \(j\) are represented as:
+        \[
+        \Pi_{U_i}(\mathbb{C}, \boldsymbol{a}_0), \quad \Pi_{D_j}(\mathbb{C}, \boldsymbol{a}_0)
+        \]
+        \item These payoffs implicitly depend on:
+        \begin{itemize}
+            \item Subsequent actions taken by firms (\(\boldsymbol{a}_1(\cdot)\)).
+            \item Consumer actions captured by demand functions.
+        \end{itemize}
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{Demand Representation:}
+    \begin{itemize}
+        \item Upstream demand: \(\bar{D}(\cdot)\).
+        \item Downstream demand: \(\underline{D}(\cdot)\).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Payoff Representation}
+  
+    \textbf{Demand Representation:}
+    \begin{itemize}
+        \item Example (successive monopoly with per-unit pricing):
+        \[
+        \mathbb{C} = \{w\}, \quad a_0 = \emptyset, \quad a_1 = \{p\}
+        \]
+        \[
+        \bar{D}(w) = \underline{D}(w) = D\left(p^m\left(w + c_R\right)\right)
+        \]
+        \item In this case, upstream and downstream demand coincide because of a single retailer-manufacturer setup.
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{General Case:}
+    \begin{itemize}
+        \item When there are multiple upstream firms or consumers do not always purchase upstream products, \(\bar{D}(\cdot)\) and \(\underline{D}(\cdot)\) will typically differ.
+    \end{itemize}
+\end{frame}
+
+% Slide 8: Example - Medical Devices
+\begin{frame}{Example: Medical Devices (Grennan, 2013)}
+    \begin{itemize}
+        \item Contracts \(\mathbb{C}\) between stent manufacturers (\(i\)) and hospitals (\(j\)) specify linear prices \(\boldsymbol{w} = \{w_{ij}\}\).
+        \item The null contract \(\mathbb{C}_0\) is represented by \(w_{ij} = \infty\), meaning no trade occurs.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example: Medical Devices (Grennan, 2013)}
+    \begin{itemize}
+        
+        \item The payoff for stent manufacturer \(i\) is:
+        \[
+        \Pi_{U_i}(\mathbb{C}) = \sum_{j : \mathbb{C}_{ij} \neq \mathbb{C}_0} \left(w_{ij} - c_i\right) \bar{D}_{ij}\left(\{w_{kj}\}_{k \in \mathcal{I}}\right)
+        \]
+        \begin{itemize}
+            \item \(w_{ij}\) is the price in the contract between manufacturer \(i\) and hospital \(j\).
+            \item \(c_i\) is the marginal cost of producing stent \(i\).
+            \item \(\bar{D}_{ij}(\cdot)\) is the quantity of stent \(i\) used at hospital \(j\), which depends on:
+            \begin{itemize}
+                \item Preferences of doctors and patients at hospital \(j\).
+                \item Contracts \(\{w_{kj}\}\) for all stents signed by hospital \(j\).
+            \end{itemize}
+        \end{itemize}
+
+        \item The payoff for hospital \(j\) is:
+        \[
+        \Pi_{D_j}(\mathbb{C}) = W_j\left(\{w_{kj}\}_{k \in \mathcal{I}}\right)
+        \]
+        \begin{itemize}
+            \item \(W_j(\cdot)\) is the welfare of hospital \(j\), which depends on the prices \(\{w_{kj}\}\) for all stents it uses.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 1: Commercial Health Insurers and Hospitals - Setup
+\begin{frame}{Example:  Health Insurers and Hospitals (Ho and Lee, 2017)}
+    \begin{itemize}
+        \item Contracts between hospitals (upstream) and insurers (downstream) in the U.S. healthcare industry.
+        \item Contracts \(\mathbb{C}\) specify payments per hospital admission:
+        \[
+        \boldsymbol{w} = \{w_{ij}\}
+        \]
+        \item Insurers also set premiums for households:
+        \[
+        \boldsymbol{p} = \{p_j\}
+        \]
+        \item Demand terms:
+        \begin{itemize}
+            \item \(\underline{D}_j(\boldsymbol{p}, \boldsymbol{N})\): Households enrolled in insurer \(j\).
+            \item \(\bar{D}_{ij}(\boldsymbol{p}, \boldsymbol{N})\): Admissions from insurer \(j\)'s enrollees to hospital \(i\).
+        \end{itemize}
+        \item \(\boldsymbol{N} = \{ij : \mathbb{C}_{ij} \neq \mathbb{C}_0\}\) represents the network of contracts.
+    \end{itemize}
+\end{frame}
+
+% Slide 2: Commercial Health Insurers and Hospitals - Payoffs
+\begin{frame}{Example: Health Insurers and Hospitals (Ho and Lee, 2017)}
+    \begin{itemize}
+        \item Hospital \(i\)'s payoff:
+        \[
+        \Pi_{U_i}(\mathbb{C}, \boldsymbol{p}) = \sum_{j : \mathbb{C}_{ij} \neq \mathbb{C}_0} \left(w_{ij} - c_i\right) \bar{D}_{ij}(\boldsymbol{p}, \boldsymbol{N})
+        \]
+        \begin{itemize}
+            \item \(w_{ij}\): Payment per admission.
+            \item \(c_i\): Per-admission cost.
         \end{itemize}
         
-        \column{0.5\textwidth}
-        % Placeholder for a figure
-        \centering
-        [Your figure here]
-    \end{columns}
-\end{frame}
-
-% Section 4
-\section{Conclusion}
-\begin{frame}{Conclusion}
-    \begin{itemize}
-        \item Main finding 1
-        \item Main finding 2
-        \item Future work
+        \item Insurer \(j\)'s payoff:
+        \[
+        \Pi_{D_j}(\mathbb{C}, \boldsymbol{p}) = \left(p_j - \eta_j\right) \underline{D}_j(\boldsymbol{p}, \boldsymbol{N}) - \sum_{i : \mathbb{C}_{ij} \neq \mathbb{C}_0} w_{ij} \bar{D}_{ij}(\boldsymbol{p}, \boldsymbol{N})
+        \]
+        \begin{itemize}
+            \item \(p_j\): Insurer premium.
+            \item \(\eta_j\): Non-hospital costs (e.g., physician or drug payments).
+        \end{itemize}
+        
+        \item Differences from the previous example:
+        \begin{itemize}
+            \item Payoffs depend on premiums, an additional supply-side decision.
+            \item Insurers compete for households, so all firms’ actions affect payoffs.
+        \end{itemize}
     \end{itemize}
 \end{frame}
+
+
+% Slide 1: Multichannel Television - Setup
+\begin{frame}{Example: Multichannel Television and Vertical Integration}
+    \begin{itemize}
+        \item Crawford and Yurukoglu (2012) and Crawford et al. (2018) study negotiations between:
+        \begin{itemize}
+            \item Upstream television channels (\(i\)).
+            \item Downstream multichannel video programming distributors (MVPDs, \(j\)), such as cable and satellite firms.
+        \end{itemize}
+        \item Contracts \(\mathbb{C}\) specify linear affiliate fees:
+        \[
+        \boldsymbol{w} = \{w_{ij}\}
+        \]
+        \item \(w_{ij}\): Amount distributor \(j\) pays channel \(i\) per subscriber.
+        \item Distributors choose subscription prices:
+        \[
+        \boldsymbol{p} = \{p_j\}
+        \]
+    \end{itemize}
+\end{frame}
+
+% Slide 2: Multichannel Television - Timing and Demand
+\begin{frame}{Timing and Demand in Multichannel Television}
+    \begin{itemize}
+        \item Timing assumptions:
+        \begin{itemize}
+            \item Crawford and Yurukoglu (2012): Subscription prices are set after contracting.
+            \item Crawford et al. (2018): Subscription prices and contracts are set simultaneously.
+        \end{itemize}
+        \item Demand objects:
+        \begin{itemize}
+            \item \(\underline{D}_j(\boldsymbol{p}, \boldsymbol{N})\): Number of households subscribing to distributor \(j\).
+            \item \(\boldsymbol{N} = \{ij : \mathbb{C}_{ij} \neq \mathbb{C}_0\}\): Network of channel-distributor agreements.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Multichannel Television - Payoffs
+\begin{frame}{Payoffs in Multichannel Television}
+    \begin{itemize}
+        \item Channel \(i\)'s payoff:
+        \[
+        \Pi_{U_i}(\mathbb{C}, \boldsymbol{p}) = \sum_{j : \mathbb{C}_{ij} \neq \mathbb{C}_0} \left(w_{ij} \underline{D}_j(\boldsymbol{p}, \boldsymbol{N}) + ad_{ij}(\boldsymbol{p}, \boldsymbol{N})\right)
+        \]
+        \begin{itemize}
+            \item \(ad_{ij}(\cdot)\): Advertising revenue from distributor \(j\)'s subscribers.
+            \item $w_{ij}$: channel fee received from distributor $j$.
+        \end{itemize}
+
+        \item Distributor \(j\)'s payoff:
+        \[
+        \Pi_{D_j}(\mathbb{C}, \boldsymbol{p}) = \left(p_j - \sum_{i : \mathbb{C}_{ij} \neq \mathbb{C}_0} w_{ij}\right) \underline{D}_j(\boldsymbol{p}, \boldsymbol{N})
+        \]
+        \begin{itemize}
+            \item \(p_j\): Subscription price set by distributor \(j\).
+            \item \(\underline{D}_j(\cdot)\): Number of households subscribing to distributor \(j\).
+        \end{itemize}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Discussion}
+    \begin{itemize}
+            \item Key difference from Example 11:
+        \begin{itemize}
+            \item Here, fees \(w_{ij}\) are paid for all subscribers (\(\underline{D}_j\)).
+            \item In Example 11, fees were paid only for specific hospital admissions (\(\bar{D}_{ij}\)).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 13: Sequential vs Simultaneous Timing
+\begin{frame}{Sequential vs Simultaneous Timing}
+    \begin{itemize}
+        \item Timing assumptions play a critical role in contracting models:
+        \begin{itemize}
+            \item Simultaneous: Actions like pricing and contracting are decided together.
+            \item Sequential: Contracting concludes before other actions are taken (e.g., pricing).
+        \end{itemize}
+        \item Implications:
+        \begin{itemize}
+            \item Simultaneous timing simplifies calculations but ignores downstream adjustments.
+            \item Sequential timing captures adjustment dynamics but increases computational complexity.
+        \end{itemize}
+        \item Example: Multichannel TV contracts often assume sequential timing for pricing decisions.
+    \end{itemize}
+\end{frame}
+
+% Slide 14: Modeling Contract Formation
+\begin{frame}{Modeling Contract Formation}
+    \begin{itemize}
+        \item Different approaches to modeling contract formation:
+        \begin{enumerate}
+            \item Take-It-Or-Leave-It (TIOLI) Offers:
+            \begin{itemize}
+                \item One side (e.g., upstream firms) makes offers to the other side.
+                \item Example: Villas-Boas (2007) for manufacturer-retailer contracts.
+            \end{itemize}
+            \item Nash-in-Nash Bargaining:
+            \begin{itemize}
+                \item Firms bargain simultaneously over terms.
+                \item Useful for capturing mutual leverage and flexibility in negotiations.
+            \end{itemize}
+        \end{enumerate}
+        \item Choice of model depends on the industry and available data.
+    \end{itemize}
+\end{frame}
+
+% Slide 1: Contracting Between Manufacturers and Retailers - Setup
+\begin{frame}{Contracting Between Manufacturers and Retailers}
+    \begin{itemize}
+        \item Villas-Boas (2007) models contracting and pricing between:
+        \begin{itemize}
+            \item Manufacturers (yogurt producers, indexed by \(i\)).
+            \item Retailers (supermarkets, indexed by \(j\)).
+        \end{itemize}
+        \item Two stages:
+        \begin{itemize}
+            \item Stage 1: Manufacturers simultaneously offer contracts to retailers.
+            \item Stage 2: Retailers choose retail prices given contracts.
+        \end{itemize}
+        \item Contracts may include:
+        \begin{itemize}
+            \item Linear wholesale prices \(\boldsymbol{w} = \{w_{ij}\}\).
+            \item Two-part tariffs (fixed fees and variable prices).
+        \end{itemize}
+        \item Assumptions:
+        \begin{itemize}
+            \item Each manufacturer produces one product.
+            \item Each retailer carries all products.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 2: Retailer Profit and Pricing
+\begin{frame}{Retailer Profit and Pricing}
+    \begin{itemize}
+        \item Retailer \(j\)'s profit:
+        \[
+        \Pi_{D_j}(\boldsymbol{w}, \boldsymbol{p}) = \sum_i \left(p_{ij} - w_{ij} - c_{Dj}\right) D_{ij}(\boldsymbol{p})
+        \]
+        \begin{itemize}
+            \item \(p_{ij}\): Retail price of product \(i\) at store \(j\).
+            \item \(w_{ij}\): Wholesale price offered by manufacturer \(i\).
+            \item \(c_{Dj}\): Retailer \(j\)'s marginal cost.
+            \item \(D_{ij}(\boldsymbol{p})\): Demand for product \(i\) at store \(j\).
+        \end{itemize}
+        \item Retail prices under Nash-Bertrand competition:
+        \[
+        \boldsymbol{p} = \boldsymbol{w} + \boldsymbol{c}_D - \left(\boldsymbol{T} * \Lambda_D\right)^{-1} \boldsymbol{D}(\boldsymbol{p})
+        \]
+        \begin{itemize}
+            \item \(\boldsymbol{T}(m, n)\): 1 if \(m, n\) share the same retailer, 0 otherwise.
+            \item \(\Lambda_D(m, n) = \frac{\partial D_n}{\partial p_m}\): Demand sensitivity to price changes.
+            \item \( * \): Element-wise multiplication.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Manufacturer Profit
+\begin{frame}{Manufacturer Profit}
+    \begin{itemize}
+        \item Manufacturer \(i\)'s profit:
+        \[
+        \Pi_{U_i}(\boldsymbol{w}) = \sum_j \left(w_{ij} - c_{Ui}\right) D_{ij}(\boldsymbol{p}(\boldsymbol{w}))
+        \]
+        \begin{itemize}
+            \item \(w_{ij}\): Wholesale price offered to retailer \(j\).
+            \item \(c_{Ui}\): Manufacturer \(i\)'s marginal cost.
+            \item \(D_{ij}(\boldsymbol{p}(\boldsymbol{w}))\): Demand for product \(i\) at store \(j\), given equilibrium prices.
+        \end{itemize}
+        \item Equilibrium wholesale prices:
+        \[
+        \boldsymbol{w} = \boldsymbol{c}_U - \left(I_{I \times J} * (\Lambda_P' \Lambda_D)\right)^{-1} \boldsymbol{D}(\boldsymbol{p}(\boldsymbol{w}))
+        \]
+        \begin{itemize}
+            \item \(I_{I \times J}\): Identity matrix for all product-retailer combinations.
+            \item \(\Lambda_P(m, n) = \frac{\partial p_n}{\partial w_m}\): Pass-through matrix.
+        \end{itemize}
+        \item Villas-Boas uses this framework to analyze price-cost margins and conduct assumptions.
+    \end{itemize}
+\end{frame}
+
+% Slide 16: Nash-in-Nash Bargaining Model
+\begin{frame}{Nash-in-Nash Bargaining Model}
+    \begin{itemize}
+        \item Nash-in-Nash bargaining captures simultaneous negotiations between pairs of firms.
+        \item Necessary condition:
+\begin{footnotesize}
+\[
+\widehat{\mathbb{C}}_{ij} \in \arg \max_{\mathbb{C}_{ij} \in \mathcal{C}_{ij}^+(\widehat{\mathbb{C}}_{-ij})}  
+\Bigg[
+\underbrace{
+    \Big(\Pi_{Dj}(\{\mathbb{C}_{ij}, \widehat{\mathbb{C}}_{-ij}\}) 
+    - \Pi_{Dj}(\{\mathbb{C}_0, \widehat{\mathbb{C}}_{-ij}\})\Big)^{b_{ij}}
+}_{\Delta_{ij} \Pi_{Dj}(\{\mathbb{C}_{ij}, \widehat{\mathbb{C}}_{-ij}\})}
+\cdot
+\underbrace{
+    \Big(\Pi_{Ui}(\{\mathbb{C}_{ij}, \widehat{\mathbb{C}}_{-ij}\}) 
+    - \Pi_{Ui}(\{\mathbb{C}_0, \widehat{\mathbb{C}}_{-ij}\})\Big)^{1-b_{ij}}
+}_{\Delta_{ij} \Pi_{Ui}(\{\mathbb{C}_{ij}, \widehat{\mathbb{C}}_{-ij}\})}
+\Bigg]
+\]
+\end{footnotesize}
+        \item Key terms:
+        \begin{itemize}
+            \item \(\Delta D_j(C)\): Gains from trade for downstream firm \(j\).
+            \item \(\Delta U_i(C)\): Gains from trade for upstream firm \(i\).
+            \item \(b_{ij}\): Bargaining parameter for downstream firm \(j\).
+        \end{itemize}
+        \item Assumes contracts of other pairs are held fixed during negotiations.
+    \end{itemize}
+\end{frame}
+% Slide 1: Health Insurer-Hospital Negotiations - Setup
+\begin{frame}{Health Insurer-Hospital Negotiations (Ho and Lee, 2017)}
+    \begin{itemize}
+        \item Health insurers negotiate contracts \(\mathbb{C}\) with hospitals, specifying per-admission payments \(w\), while simultaneously negotiating premiums \(\boldsymbol{p}\) with employers.
+        \item Payoffs are based on Example 11 (\(\Pi_{U_i}\) for hospitals and \(\Pi_{D_j}\) for insurers).
+    \end{itemize}
+\end{frame}
+
+
+% Slide 2: Commercial Health Insurers and Hospitals - Payoffs
+\begin{frame}{Example: Health Insurers and Hospitals (Ho and Lee, 2017)}
+    \begin{itemize}
+        \item Hospital \(i\)'s payoff:
+        \[
+        \Pi_{U_i}(\mathbb{C}, \boldsymbol{p}) = \sum_{j : \mathbb{C}_{ij} \neq \mathbb{C}_0} \left(w_{ij} - c_i\right) \bar{D}_{ij}(\boldsymbol{p}, \boldsymbol{N})
+        \]
+        \begin{itemize}
+            \item \(w_{ij}\): Payment per admission.
+            \item \(c_i\): Per-admission cost.
+        \end{itemize}
+        
+        \item Insurer \(j\)'s payoff:
+        \[
+        \Pi_{D_j}(\mathbb{C}, \boldsymbol{p}) = \left(p_j - \eta_j\right) \underline{D}_j(\boldsymbol{p}, \boldsymbol{N}) - \sum_{i : \mathbb{C}_{ij} \neq \mathbb{C}_0} w_{ij} \bar{D}_{ij}(\boldsymbol{p}, \boldsymbol{N})
+        \]
+        \begin{itemize}
+            \item \(p_j\): Insurer premium.
+            \item \(\eta_j\): Non-hospital costs (e.g., physician or drug payments).
+        \end{itemize}
+        
+        \item Differences from the previous example:
+        \begin{itemize}
+            \item Payoffs depend on premiums, an additional supply-side decision.
+            \item Insurers compete for households, so all firms’ actions affect payoffs.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+% Slide 1: Health Insurer-Hospital Negotiations - Setup
+\begin{frame}{Health Insurer-Hospital Negotiations (Ho and Lee, 2017)}
+    \begin{itemize}
+        \item Nash-in-Nash bargaining conditions govern hospital payments \(w_{ij}\), incorporating premiums \(\boldsymbol{p}\) as supply-side actions (first-order condition):
+        \[
+        \widehat{w}_{ij} \times \bar{D}_{ij}(\cdot) = 
+        \left(1 - b_{ij}\right) \times \Delta_{ij} \Pi_{D_j}\left(\{w_{ij} = 0, \widehat{\mathbb{C}}_{-ij}\}, \widehat{\boldsymbol{p}}\right)
+        - b_{ij} \times \Delta_{ij} \Pi_{U_i}\left(\{w_{ij} = 0, \widehat{\mathbb{C}}_{-ij}\}, \widehat{\boldsymbol{p}}\right)
+        \]
+        \item Terms in the equation:
+        \begin{itemize}
+            \item \(\bar{D}_{ij}(\cdot)\): Number of insurer \(j\)'s enrollees admitted to hospital \(i\).
+            \item \(b_{ij}\): Bargaining weight of hospital \(i\) in negotiations with insurer \(j\).
+            \item \(\Delta_{ij} \Pi_{D_j}\): Insurer \(j\)'s gain from trade if the payment to hospital \(i\) is set to zero.
+            \item \(\Delta_{ij} \Pi_{U_i}\): Hospital \(i\)'s gain from trade under the same condition.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 18: Double Marginalization
+% \begin{frame}{Double Marginalization}
+%     \begin{itemize}
+%         \item Double marginalization occurs when both upstream and downstream firms add markups.
+%         \item Example: Manufacturer-retailer chain.
+%         \item Nash bargaining reduces double marginalization by sharing surplus.
+%         \item Equilibrium wholesale price:
+%         \[
+%         w = (1 - b) p + b c
+%         \]
+%         \begin{itemize}
+%             \item \(b\): Bargaining parameter for downstream firm.
+%             \item \(p\): Retail price.
+%             \item \(c\): Upstream marginal cost.
+%         \end{itemize}
+%         \item Retail price still exceeds marginal cost, but markups are lower.
+%     \end{itemize}
+% \end{frame}
+
+% Slide 19: Estimation and Identification
+\begin{frame}{Supply Estimation and Identification}
+    \begin{itemize}
+        \item Estimation involves recovering key parameters:
+        \begin{itemize}
+            \item Marginal costs (\(c^U, c^D\)).
+            \item Bargaining parameters (\(b_{ij}\)).
+            \item Gains from trade (\(\Delta D_j, \Delta U_i\)).
+        \end{itemize}
+        \item Ideal data scenario:
+        \begin{itemize}
+            \item Observed wholesale prices (\(w\)).
+            \item Observed demand system (\(D(p)\)).
+            \item Marginal cost $c_R$ and $c_M$.
+        \end{itemize}
+        \item Missing data (e.g., marginal costs) requires additional assumptions or instruments.
+    \end{itemize}
+\end{frame}
+
+% Slide 21: Demand Estimation
+\begin{frame}{Demand Estimation}
+    \begin{itemize}
+        \item A key input for vertical contracting models is estimating consumer demand.
+        \item Demand estimation helps predict:
+        \begin{itemize}
+            \item Upstream and downstream quantities (\(D(p, x, w)\)).
+            \item Consumer responses to prices and product characteristics (\(x\)).
+        \end{itemize}
+        \item Techniques:
+        \begin{itemize}
+            \item Use exogenous variation in prices and characteristics to identify demand.
+            \item Estimate demand functions for both upstream and downstream firms.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 22: Example - Estimating Demand in Healthcare
+\begin{frame}{Example: Estimating Demand in Healthcare}
+    \begin{itemize}
+        \item Ho and Lee (2017): Model demand for health insurance plans and hospital services.
+        \item Consumer utility for insurer \(j\):
+        \[
+        u_{cjm} = \beta v_{cjm} + x_{jm} \beta_x + \xi_{jm} + \epsilon_{cjm}
+        \]
+        \begin{itemize}
+            \item \(v_{cjm}\): Willingness to pay (WTP) for insurer \(j\)'s hospital network.
+            \item \(x_{jm}\): Observed characteristics (e.g., premiums).
+            \item \(\xi_{jm}\): Unobserved demand shocks.
+            \item \(\epsilon_{cjm}\): Idiosyncratic preferences.
+        \end{itemize}
+        \item Model jointly estimates insurer and hospital demand.
+    \end{itemize}
+\end{frame}
+
+% Slide 23: Usage Models for Bundles
+\begin{frame}{Usage Models for Bundles}
+    \begin{itemize}
+        \item When consumers purchase bundles, usage data can inform valuation.
+        \item Example: Multichannel TV (Crawford et al., 2018)
+        \begin{itemize}
+            \item Consumer utility for distributor \(j\):
+            \[
+            u_{cjm} = \beta v_{cjm}(C_j) + x_{jm} \beta_x + \xi_{jm} + \epsilon_{cjm}
+            \]
+            \item \(v_{cjm}(C_j)\): Viewership utility for channels in bundle \(C_j\).
+            \item Viewership data helps estimate valuations for individual channels.
+        \end{itemize}
+        \item Usage models reduce data requirements by linking upstream and downstream choices.
+    \end{itemize}
+\end{frame}
+
+% Slide 24: Upstream Choice-Only Models
+\begin{frame}{Upstream Choice-Only Models}
+    \begin{itemize}
+        \item In some cases, only upstream demand is modeled.
+        \item Example: Grennan (2013) - Medical devices
+        \begin{itemize}
+            \item Focuses on hospitals' choice of medical devices.
+            \item Does not model patient flows across hospitals.
+        \end{itemize}
+        \item Simplifies computation but ignores some competitive effects.
+    \end{itemize}
+\end{frame}
+
+% Slide 25: Consumer Selection
+\begin{frame}{Consumer Selection in Demand Estimation}
+    \begin{itemize}
+        \item Selection bias arises when observed consumption depends on unobserved preferences.
+        \item Example: Multichannel TV (Crawford and Yurukoglu, 2012)
+        \begin{itemize}
+            \item Consumers who purchase bundles may have higher valuations for included channels.
+            \item Ignoring selection leads to overestimating valuations.
+        \end{itemize}
+        \item Solution:
+        \begin{itemize}
+            \item Jointly estimate upstream and downstream demand.
+            \item Use techniques like Heckman correction or joint estimation of preferences.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 26: Joint Estimation of Demand and Supply
+\begin{frame}{Joint Estimation of Demand and Supply}
+    \begin{itemize}
+        \item Demand and supply parameters can be jointly estimated for efficiency.
+        \item Example: Crawford et al. (2018)
+        \begin{itemize}
+            \item Wholesale prices (\(w_{ij}\)) used to infer demand valuations.
+            \item Assumes content with higher fees has higher consumer value.
+        \end{itemize}
+        \item Benefits:
+        \begin{itemize}
+            \item Increases precision of demand estimates.
+            \item Captures interactions between demand and supply.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 27: Policy Applications - Mergers
+\begin{frame}{Policy Applications: Horizontal Mergers in Vertical Markets}
+    \begin{itemize}
+        \item Structural models are used to analyze merger impacts.
+        \item Example: Gowrisankaran et al. (2015)
+        \begin{itemize}
+            \item Study hospital mergers and their effects on insurer-hospital bargaining.
+            \item Simulate price increases under Nash-in-Nash bargaining.
+        \end{itemize}
+        \item Policy implications:
+        \begin{itemize}
+            \item Mergers can increase bargaining leverage but harm consumer welfare.
+            \item Quantifying competitive effects is crucial for antitrust decisions.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 28: Policy Applications - Vertical Integration
+\begin{frame}{Policy Applications: Vertical Integration}
+    \begin{itemize}
+        \item Vertical integration affects competition through:
+        \begin{itemize}
+            \item Efficiencies: Reducing double marginalization.
+            \item Foreclosure: Denying rivals access to key inputs.
+        \end{itemize}
+        \item Example: Crawford et al. (2018)
+        \begin{itemize}
+            \item Study integration between cable distributors and sports channels.
+            \item Find positive average welfare effects but harm to rival distributors.
+        \end{itemize}
+        \item Policy implications:
+        \begin{itemize}
+            \item Effects of vertical integration vary across markets.
+            \item Requires case-specific analysis for mergers.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
 
 \end{document} 
