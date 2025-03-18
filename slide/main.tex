@@ -3,6 +3,7 @@
 % Use a clean theme as base
 \usetheme{default}
 \usecolortheme{default}
+\usepackage{booktabs}
 
 % Custom colors from HKUST logo
 \definecolor{hkustblue}{RGB}{0, 51, 119}    % Navy blue from logo
@@ -56,20 +57,6 @@
 % Title page
 \begin{frame}
     \titlepage
-\end{frame}
-
-% Slide 1: Introduction
-\begin{frame}{Introduction}
-    \begin{itemize}
-        % \item This section focuses on an empirical framework for analyzing vertical contracting.
-        \item Focus: theoretical insights into industry models to estimate firm behavior.
-        \item Framework involves:
-        \begin{enumerate}
-            \item Supply-side actions (Stage 1)
-            \item Demand-side actions (Stage 2)
-        \end{enumerate}
-        \item Outcomes modeled over single or multiple time periods.
-    \end{itemize}
 \end{frame}
 
 % Slide 2: Two-Stage Framework
@@ -250,7 +237,7 @@
         \item Differences from the previous example:
         \begin{itemize}
             \item Payoffs depend on premiums, an additional supply-side decision.
-            \item Insurers compete for households, so all firms’ actions affect payoffs.
+            \item Insurers compete for households, so all firms' actions affect payoffs.
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -343,24 +330,71 @@
     \end{itemize}
 \end{frame}
 
+
+
 % Slide 14: Modeling Contract Formation
 \begin{frame}{Modeling Contract Formation}
-    \begin{itemize}
-        \item Different approaches to modeling contract formation:
-        \begin{enumerate}
-            \item Take-It-Or-Leave-It (TIOLI) Offers:
-            \begin{itemize}
-                \item One side (e.g., upstream firms) makes offers to the other side.
-                \item Example: Villas-Boas (2007) for manufacturer-retailer contracts.
-            \end{itemize}
-            \item Nash-in-Nash Bargaining:
-            \begin{itemize}
-                \item Firms bargain simultaneously over terms.
-                \item Useful for capturing mutual leverage and flexibility in negotiations.
-            \end{itemize}
-        \end{enumerate}
-        \item Choice of model depends on the industry and available data.
+\begin{itemize}
+    \item \textbf{Different Approaches to Modeling Contract Formation:}
+    \begin{enumerate}
+        \item \textbf{Take-It-Or-Leave-It (TIOLI) Offers}
+        
+        \item \textbf{Nash-in-Nash Bargaining}
+    \end{enumerate}
     \end{itemize}
+\end{frame}
+
+
+% Slide 14: Modeling Contract Formation
+\begin{frame}{Take-It-Or-Leave-It (TIOLI) Offers}
+\begin{itemize}
+    \item In this framework, one side of the negotiation (e.g., the upstream firm, such as the manufacturer) \textbf{unilaterally proposes a contract offer} to the other side (e.g., the downstream firm, such as the retailer).
+    \item The receiving party can either:
+    \begin{itemize}
+        \item \textbf{Accept the offer}, in which case the contract terms are implemented as proposed.
+        \item \textbf{Reject the offer}, in which case no agreement is reached, and both sides receive their disagreement payoffs (e.g., profits they would earn without a deal).
+    \end{itemize}
+    \item This approach assumes one party has the \textbf{power to dictate the terms of the contract}.
+    \item Example: Villas-Boas (2007) uses a TIOLI framework to analyze manufacturer-retailer contracts, examining how manufacturers' offers affect the retailer's decision-making.
+    \item Strengths:
+    \begin{itemize}
+        \item Simple and easy to implement in theoretical and empirical models.
+        \item Useful when one party dominates the bargaining process.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% Slide 14: Modeling Contract Formation
+\begin{frame}{Nash-in-Nash Bargaining}
+\begin{itemize}
+    \item In this framework, firms \textbf{bargain simultaneously} over contract terms.
+    \item Each firm uses its \textbf{outside options and leverage} to negotiate favorable terms.
+    \item Assumes mutual flexibility and the ability to reach efficient agreements.
+    \item Useful for modeling industries where both upstream and downstream firms have significant bargaining power.
+    \item Strengths:
+    \begin{itemize}
+        \item Captures mutual influence in negotiation dynamics.
+        \item More flexible and realistic in industries with balanced power dynamics.
+    \end{itemize}
+    \item Weaknesses:
+    \begin{itemize}
+        \item Computational complexity in empirical applications.
+        \item Requires detailed data to estimate bargaining power and outside options.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% Slide 14: Modeling Contract Formation
+\begin{frame}{Modeling Contract Formation}
+\textbf{Choosing a Model:}
+\begin{itemize}
+    \item The choice between TIOLI and Nash-in-Nash depends on:
+    \begin{itemize}
+        \item The \textbf{industry structure}: Is one party dominant, or do both have leverage?
+        \item The \textbf{availability of data}: Nash-in-Nash requires more detailed data to estimate bargaining power and disagreement payoffs.
+        \item The \textbf{research objective}: TIOLI is simpler and easier for theoretical models, while Nash-in-Nash is better for realistic and flexible modeling.
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 % Slide 1: Contracting Between Manufacturers and Retailers - Setup
@@ -389,54 +423,104 @@
     \end{itemize}
 \end{frame}
 
-% Slide 2: Retailer Profit and Pricing
-\begin{frame}{Retailer Profit and Pricing}
+
+
+% Slide 1: Introduction to Double Marginalization
+\begin{frame}{What is Double Marginalization?}
     \begin{itemize}
-        \item Retailer \(j\)'s profit:
-        \[
-        \Pi_{D_j}(\boldsymbol{w}, \boldsymbol{p}) = \sum_i \left(p_{ij} - w_{ij} - c_{Dj}\right) D_{ij}(\boldsymbol{p})
-        \]
+        \item Occurs in supply chains where a \textbf{manufacturer} and \textbf{retailer} independently maximize profits.
+        \item Each adds a markup:
         \begin{itemize}
-            \item \(p_{ij}\): Retail price of product \(i\) at store \(j\).
-            \item \(w_{ij}\): Wholesale price offered by manufacturer \(i\).
-            \item \(c_{Dj}\): Retailer \(j\)'s marginal cost.
-            \item \(D_{ij}(\boldsymbol{p})\): Demand for product \(i\) at store \(j\).
+            \item Manufacturer marks up the wholesale price (\(w\)).
+            \item Retailer marks up the retail price (\(p\)).
         \end{itemize}
-        \item Retail prices under Nash-Bertrand competition:
-        \[
-        \boldsymbol{p} = \boldsymbol{w} + \boldsymbol{c}_D - \left(\boldsymbol{T} * \Lambda_D\right)^{-1} \boldsymbol{D}(\boldsymbol{p})
-        \]
+        \item Results in:
         \begin{itemize}
-            \item \(\boldsymbol{T}(m, n)\): 1 if \(m, n\) share the same retailer, 0 otherwise.
-            \item \(\Lambda_D(m, n) = \frac{\partial D_n}{\partial p_m}\): Demand sensitivity to price changes.
-            \item \( * \): Element-wise multiplication.
+            \item Higher retail price (\(p\)) than optimal.
+            \item Reduced consumer demand.
+            \item Lower joint profits for the supply chain.
         \end{itemize}
     \end{itemize}
 \end{frame}
 
-% Slide 3: Manufacturer Profit
-\begin{frame}{Manufacturer Profit}
+% Slide 2: Setup of the Problem
+\begin{frame}{Setup of the Problem}
     \begin{itemize}
-        \item Manufacturer \(i\)'s profit:
-        \[
-        \Pi_{U_i}(\boldsymbol{w}) = \sum_j \left(w_{ij} - c_{Ui}\right) D_{ij}(\boldsymbol{p}(\boldsymbol{w}))
-        \]
+        \item A \textbf{manufacturer} and \textbf{retailer} negotiate the wholesale price (\(w\)) using \textbf{Nash bargaining}.
+        \item The retailer simultaneously sets the retail price (\(p\)).
+        \item Key assumptions:
         \begin{itemize}
-            \item \(w_{ij}\): Wholesale price offered to retailer \(j\).
-            \item \(c_{Ui}\): Manufacturer \(i\)'s marginal cost.
-            \item \(D_{ij}(\boldsymbol{p}(\boldsymbol{w}))\): Demand for product \(i\) at store \(j\), given equilibrium prices.
+            \item Nash bargaining and retail pricing are \textbf{independent but simultaneous}.
+            \item The outcome depends on:
+            \begin{itemize}
+                \item Bargaining power (\(b\)) of the retailer.
+                \item Marginal costs of the manufacturer (\(c_M\)) and retailer (\(c_R\)).
+                \item Consumer demand (\(D(p)\)).
+            \end{itemize}
         \end{itemize}
-        \item Equilibrium wholesale prices:
-        \[
-        \boldsymbol{w} = \boldsymbol{c}_U - \left(I_{I \times J} * (\Lambda_P' \Lambda_D)\right)^{-1} \boldsymbol{D}(\boldsymbol{p}(\boldsymbol{w}))
-        \]
-        \begin{itemize}
-            \item \(I_{I \times J}\): Identity matrix for all product-retailer combinations.
-            \item \(\Lambda_P(m, n) = \frac{\partial p_n}{\partial w_m}\): Pass-through matrix.
-        \end{itemize}
-        \item Villas-Boas uses this framework to analyze price-cost margins and conduct assumptions.
     \end{itemize}
 \end{frame}
+
+% Slide 3: Bargaining Equation
+\begin{frame}{Wholesale Price via Nash Bargaining}
+    \textbf{Nash bargaining condition:}
+    \[
+    \hat{w} = (1-b)(\hat{p} - c_R) + b c_M
+    \]
+    \begin{itemize}
+        \item \(b\): Retailer's bargaining power (\(0 \leq b \leq 1\)).
+        \item \(\hat{p}\): Retail price (set by the retailer).
+        \item \(c_R\): Retailer's cost of selling the product.
+        \item \(c_M\): Manufacturer's marginal cost of production.
+    \end{itemize}
+    \vspace{0.5cm}
+    \textbf{Key insights:}
+    \begin{itemize}
+        \item If \(b = 1\): \(\hat{w} = c_M\) (retailer pays only the marginal cost).
+        \item If \(b < 1\): \(\hat{w} > c_M\), leading to inefficiency (double marginalization).
+    \end{itemize}
+\end{frame}
+
+% Slide 4: Retailer's Pricing Equation
+\begin{frame}{Retail Price Setting}
+    \textbf{Retailer's profit maximization:}
+    \[
+    \hat{p} = \hat{w} + c_R - \frac{D(\hat{p})}{D'(\hat{p})}
+    \]
+    \begin{itemize}
+        \item \(\hat{w}\): Wholesale price (bargained with the manufacturer).
+        \item \(c_R\): Retailer's cost.
+        \item \(\frac{D(\hat{p})}{D'(\hat{p})}\): Demand elasticity factor.
+    \end{itemize}
+    \vspace{0.5cm}
+    \textbf{Key insight:}
+    \begin{itemize}
+        \item Vertifical externality: when $\hat{w} > c_R$, the retailer's ignores the impact of its pricing on the manufacturer's profits.
+        \item If R makes TIOLI offer, $\hat{w} = c_M$ and $\hat{p} = c_M + c_R$.
+    \end{itemize}
+\end{frame}
+
+% Slide 5: Key Results and Insights
+\begin{frame}{Key Results and Insights}
+    \begin{itemize}
+        \item Double Marginalization Occurs:
+        \begin{itemize}
+            \item If \(b < 1\), the wholesale price \(\hat{w}\) exceeds the manufacturer's marginal cost (\(c_M\)).
+            \item Both the manufacturer and retailer add markups, inflating the retail price \(\hat{p}\).
+        \end{itemize}
+        \item Joint Profit is Not Maximized:
+        \begin{itemize}
+            \item High retail price reduces consumer demand.
+            \item Supply chain efficiency is reduced.
+        \end{itemize}
+        \item Effect of Bargaining Power (\(b\)):
+        \begin{itemize}
+            \item Higher \(b \Rightarrow \hat{w} \approx c_M\), reducing inefficiency.
+            \item Lower $b \Rightarrow$ Greater inefficiency.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
 
 % Slide 16: Nash-in-Nash Bargaining Model
 \begin{frame}{Nash-in-Nash Bargaining Model}
@@ -496,13 +580,9 @@
         \begin{itemize}
             \item \(p_j\): Insurer premium.
             \item \(\eta_j\): Non-hospital costs (e.g., physician or drug payments).
+            \item Two demands are different: \(\underline{D}_j(\boldsymbol{p}, \boldsymbol{N})\) and \(\bar{D}_{ij}(\boldsymbol{p}, \boldsymbol{N})\).
         \end{itemize}
         
-        \item Differences from the previous example:
-        \begin{itemize}
-            \item Payoffs depend on premiums, an additional supply-side decision.
-            \item Insurers compete for households, so all firms’ actions affect payoffs.
-        \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -526,24 +606,6 @@
     \end{itemize}
 \end{frame}
 
-% Slide 18: Double Marginalization
-% \begin{frame}{Double Marginalization}
-%     \begin{itemize}
-%         \item Double marginalization occurs when both upstream and downstream firms add markups.
-%         \item Example: Manufacturer-retailer chain.
-%         \item Nash bargaining reduces double marginalization by sharing surplus.
-%         \item Equilibrium wholesale price:
-%         \[
-%         w = (1 - b) p + b c
-%         \]
-%         \begin{itemize}
-%             \item \(b\): Bargaining parameter for downstream firm.
-%             \item \(p\): Retail price.
-%             \item \(c\): Upstream marginal cost.
-%         \end{itemize}
-%         \item Retail price still exceeds marginal cost, but markups are lower.
-%     \end{itemize}
-% \end{frame}
 
 % Slide 19: Estimation and Identification
 \begin{frame}{Supply Estimation and Identification}
@@ -663,44 +725,18 @@
     \end{itemize}
 \end{frame}
 
-% Slide 27: Policy Applications - Mergers
-\begin{frame}{Policy Applications: Horizontal Mergers in Vertical Markets}
+% Slide 27: Conclusion
+\begin{frame}{Conclusion}
     \begin{itemize}
-        \item Structural models are used to analyze merger impacts.
-        \item Example: Gowrisankaran et al. (2015)
-        \begin{itemize}
-            \item Study hospital mergers and their effects on insurer-hospital bargaining.
-            \item Simulate price increases under Nash-in-Nash bargaining.
-        \end{itemize}
-        \item Policy implications:
-        \begin{itemize}
-            \item Mergers can increase bargaining leverage but harm consumer welfare.
-            \item Quantifying competitive effects is crucial for antitrust decisions.
-        \end{itemize}
+        \item Vertical contracting models capture interactions between upstream and downstream firms.
+        \item Estimation requires careful modeling of demand and supply.
+        \item Techniques like Nash bargaining and demand estimation help recover key parameters.
+        \item Joint estimation of demand and supply can improve precision and capture interactions.
     \end{itemize}
+
+    \vspace{0.5cm}
+    \begin{center}
+        \textbf{Thank you!}
+    \end{center}
 \end{frame}
-
-% Slide 28: Policy Applications - Vertical Integration
-\begin{frame}{Policy Applications: Vertical Integration}
-    \begin{itemize}
-        \item Vertical integration affects competition through:
-        \begin{itemize}
-            \item Efficiencies: Reducing double marginalization.
-            \item Foreclosure: Denying rivals access to key inputs.
-        \end{itemize}
-        \item Example: Crawford et al. (2018)
-        \begin{itemize}
-            \item Study integration between cable distributors and sports channels.
-            \item Find positive average welfare effects but harm to rival distributors.
-        \end{itemize}
-        \item Policy implications:
-        \begin{itemize}
-            \item Effects of vertical integration vary across markets.
-            \item Requires case-specific analysis for mergers.
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-
-
 \end{document} 
