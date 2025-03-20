@@ -519,6 +519,91 @@
     \end{itemize}
 \end{frame}
 
+% Slide 1: Introduction to Double Marginalization
+\begin{frame}{Example}
+    \textbf{Example Setup:}
+    \begin{itemize}
+        \item Demand curve: \( P = a - bQ \), where:
+        \begin{itemize}
+            \item \( P \): Price, \( Q \): Quantity demanded.
+            \item \( a \): Intercept, \( b \): Slope of the demand curve.
+        \end{itemize}
+    \end{itemize}
+
+    \textbf{Retailer’s Total Revenue (TR):}
+    \[
+    TR = P \times Q = (a - bQ) \times Q = aQ - bQ^2
+    \]
+
+    \vspace{0.3cm}
+    \textbf{Retailer’s Marginal Revenue (MR):}
+    \[
+    MR = \frac{d(TR)}{dQ} = a - 2bQ
+    \]
+\end{frame}
+
+% Slide 2: Downstream Retailer Behavior
+\begin{frame}{Downstream Retailer Behavior}
+    
+    \textbf{Profit Maximization:}
+    \begin{itemize}
+        \item Retailer chooses \( Q \) such that \( MR = MC \), where \( MC = w \) (wholesale price).
+        \item Solving:
+        \[
+        Q_r = \frac{a - w}{2b}
+        \]
+        \item Retailer’s Price:
+        \[
+        P_r = a - bQ_r = \frac{a + w}{2}
+        \]
+    \end{itemize}
+
+    \vspace{0.3cm}
+    \textbf{Key Insight:}
+    \begin{itemize}
+        \item Retailer’s price \( P_r \) includes a markup over \( w \).
+        \item Final quantity \( Q_r \) is reduced compared to the optimal supply chain outcome.
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Upstream Wholesaler Behavior & Double Marginalization
+\begin{frame}{Upstream Wholesaler Behavior \& Double Marginalization}
+    \textbf{Wholesaler’s Derived Demand Curve:}
+    \[
+    Q_r = \frac{a - w}{2b} \quad \Rightarrow \quad w = a - 2bQ
+    \]
+
+    \textbf{Wholesaler’s Total Revenue (TR):}
+    \[
+    TR = w \times Q = (a - 2bQ) \times Q = aQ - 2bQ^2
+    \]
+    \textbf{Wholesaler’s Marginal Revenue (MR):}
+    \[
+    MR = \frac{d(TR)}{dQ} = a - 4bQ
+    \]
+
+\end{frame}
+
+\begin{frame}{Profit Maximization}
+    \textbf{Profit Maximization:}
+    \begin{itemize}
+        \item Wholesaler maximizes profit where \( MR = MC \), where \( MC = c \) (production cost).
+        \item Solving:
+        \[
+        Q_w = \frac{a - c}{4b}
+        \]
+        \item Wholesale Price:
+        \[
+        w = a - 2bQ_w = \frac{a + c}{2}
+        \]
+    \end{itemize}
+
+    \textbf{Double Marginalization Problem:}
+    \begin{itemize}
+        \item Retailer’s markup on \( w \) means \( Q_r < Q_w < Q_m \), where \( Q_m \) is the quantity a single monopolist would choose.
+        \item Final price \( P_r \) is inflated, reducing consumer welfare and creating deadweight loss.
+    \end{itemize}
+\end{frame}
 % Slide 3: Bargaining Equation
 \begin{frame}{Wholesale Price via Nash Bargaining}
     \textbf{Nash bargaining condition:}
