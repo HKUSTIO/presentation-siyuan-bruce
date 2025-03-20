@@ -147,6 +147,10 @@
         \[
         \bar{D}(w) = \underline{D}(w) = D\left(p^m\left(w + c_R\right)\right)
         \]
+        \item \{w\}: upstream price;
+        \item \{p\}: downstream price;
+        \item $p^m$: monopoly price coefficient;
+        \item $c_R$: retailer's marginal cost.
         \item In this case, upstream and downstream demand coincide because of a single retailer-manufacturer setup.
     \end{itemize}
 
@@ -266,11 +270,6 @@
 % Slide 2: Multichannel Television - Timing and Demand
 \begin{frame}{Timing and Demand in Multichannel Television}
     \begin{itemize}
-        \item Timing assumptions:
-        \begin{itemize}
-            \item Crawford and Yurukoglu (2012): Subscription prices are set after contracting.
-            \item Crawford et al. (2018): Subscription prices and contracts are set simultaneously.
-        \end{itemize}
         \item Demand objects:
         \begin{itemize}
             \item \(\underline{D}_j(\boldsymbol{p}, \boldsymbol{N})\): Number of households subscribing to distributor \(j\).
@@ -307,8 +306,8 @@
     \begin{itemize}
             \item Key difference from Example 11:
         \begin{itemize}
-            \item Here, fees \(w_{ij}\) are paid for all subscribers (\(\underline{D}_j\)).
-            \item In Example 11, fees were paid only for specific hospital admissions (\(\bar{D}_{ij}\)).
+            \item Here, upstream fees \(w_{ij}\) are paid for all subscribers (\(\underline{D}_j\)).
+            \item In Example 11, upstream fees were paid only for specific hospital admissions (\(\bar{D}_{ij}\)).
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -320,11 +319,6 @@
         \begin{itemize}
             \item Simultaneous: Actions like pricing and contracting are decided together.
             \item Sequential: Contracting concludes before other actions are taken (e.g., pricing).
-        \end{itemize}
-        \item Implications:
-        \begin{itemize}
-            \item Simultaneous timing simplifies calculations but ignores downstream adjustments.
-            \item Sequential timing captures adjustment dynamics but increases computational complexity.
         \end{itemize}
         \item Example: Multichannel TV contracts often assume sequential timing for pricing decisions.
     \end{itemize}
@@ -364,164 +358,28 @@
 \end{itemize}
 \end{frame}
 
+
+
 % Slide 14: Modeling Contract Formation
 \begin{frame}{Nash-in-Nash Bargaining}
-\begin{itemize}
-    \item In this framework, firms \textbf{bargain simultaneously} over contract terms.
-    \item Each firm uses its \textbf{outside options and leverage} to negotiate favorable terms.
-    \item Assumes mutual flexibility and the ability to reach efficient agreements.
-    \item Useful for modeling industries where both upstream and downstream firms have significant bargaining power.
-    \item Strengths:
     \begin{itemize}
-        \item Captures mutual influence in negotiation dynamics.
-        \item More flexible and realistic in industries with balanced power dynamics.
-    \end{itemize}
-    \item Weaknesses:
-    \begin{itemize}
-        \item Computational complexity in empirical applications.
-        \item Requires detailed data to estimate bargaining power and outside options.
-    \end{itemize}
-\end{itemize}
-\end{frame}
-
-% Slide 14: Modeling Contract Formation
-\begin{frame}{Modeling Contract Formation}
-\textbf{Choosing a Model:}
-\begin{itemize}
-    \item The choice between TIOLI and Nash-in-Nash depends on:
-    \begin{itemize}
-        \item The \textbf{industry structure}: Is one party dominant, or do both have leverage?
-        \item The \textbf{availability of data}: Nash-in-Nash requires more detailed data to estimate bargaining power and disagreement payoffs.
-        \item The \textbf{research objective}: TIOLI is simpler and easier for theoretical models, while Nash-in-Nash is better for realistic and flexible modeling.
-    \end{itemize}
-\end{itemize}
-\end{frame}
-
-% Slide 1: Contracting Between Manufacturers and Retailers - Setup
-\begin{frame}{Contracting Between Manufacturers and Retailers}
-    \begin{itemize}
-        \item Villas-Boas (2007) models contracting and pricing between:
+        \item In this framework, firms \textbf{bargain simultaneously} over contract terms.
+        \item Each firm uses its \textbf{outside options and leverage} to negotiate favorable terms.
+        \item Assumes mutual flexibility and the ability to reach efficient agreements.
+        \item Useful for modeling industries where both upstream and downstream firms have significant bargaining power.
+        \item Strengths:
         \begin{itemize}
-            \item Manufacturers (yogurt producers, indexed by \(i\)).
-            \item Retailers (supermarkets, indexed by \(j\)).
+            \item Captures mutual influence in negotiation dynamics.
+            \item More flexible and realistic in industries with balanced power dynamics.
         \end{itemize}
-        \item Two stages:
+        \item Weaknesses:
         \begin{itemize}
-            \item Stage 1: Manufacturers simultaneously offer contracts to retailers.
-            \item Stage 2: Retailers choose retail prices given contracts.
-        \end{itemize}
-        \item Contracts may include:
-        \begin{itemize}
-            \item Linear wholesale prices \(\boldsymbol{w} = \{w_{ij}\}\).
-            \item Two-part tariffs (fixed fees and variable prices).
-        \end{itemize}
-        \item Assumptions:
-        \begin{itemize}
-            \item Each manufacturer produces one product.
-            \item Each retailer carries all products.
+            \item Computational complexity in empirical applications.
+            \item Requires detailed data to estimate bargaining power and outside options.
         \end{itemize}
     \end{itemize}
-\end{frame}
-
-
-
-% Slide 1: Introduction to Double Marginalization
-\begin{frame}{What is Double Marginalization?}
-    \begin{itemize}
-        \item Occurs in supply chains where a \textbf{manufacturer} and \textbf{retailer} independently maximize profits.
-        \item Each adds a markup:
-        \begin{itemize}
-            \item Manufacturer marks up the wholesale price (\(w\)).
-            \item Retailer marks up the retail price (\(p\)).
-        \end{itemize}
-        \item Results in:
-        \begin{itemize}
-            \item Higher retail price (\(p\)) than optimal.
-            \item Reduced consumer demand.
-            \item Lower joint profits for the supply chain.
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-% Slide 2: Setup of the Problem
-\begin{frame}{Setup of the Problem}
-    \begin{itemize}
-        \item A \textbf{manufacturer} and \textbf{retailer} negotiate the wholesale price (\(w\)) using \textbf{Nash bargaining}.
-        \item The retailer simultaneously sets the retail price (\(p\)).
-        \item Key assumptions:
-        \begin{itemize}
-            \item Nash bargaining and retail pricing are \textbf{independent but simultaneous}.
-            \item The outcome depends on:
-            \begin{itemize}
-                \item Bargaining power (\(b\)) of the retailer.
-                \item Marginal costs of the manufacturer (\(c_M\)) and retailer (\(c_R\)).
-                \item Consumer demand (\(D(p)\)).
-            \end{itemize}
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-% Slide 3: Bargaining Equation
-\begin{frame}{Wholesale Price via Nash Bargaining}
-    \textbf{Nash bargaining condition:}
-    \[
-    \hat{w} = (1-b)(\hat{p} - c_R) + b c_M
-    \]
-    \begin{itemize}
-        \item \(b\): Retailer's bargaining power (\(0 \leq b \leq 1\)).
-        \item \(\hat{p}\): Retail price (set by the retailer).
-        \item \(c_R\): Retailer's cost of selling the product.
-        \item \(c_M\): Manufacturer's marginal cost of production.
-    \end{itemize}
-    \vspace{0.5cm}
-    \textbf{Key insights:}
-    \begin{itemize}
-        \item If \(b = 1\): \(\hat{w} = c_M\) (retailer pays only the marginal cost).
-        \item If \(b < 1\): \(\hat{w} > c_M\), leading to inefficiency (double marginalization).
-    \end{itemize}
-\end{frame}
-
-% Slide 4: Retailer's Pricing Equation
-\begin{frame}{Retail Price Setting}
-    \textbf{Retailer's profit maximization:}
-    \[
-    \hat{p} = \hat{w} + c_R - \frac{D(\hat{p})}{D'(\hat{p})}
-    \]
-    \begin{itemize}
-        \item \(\hat{w}\): Wholesale price (bargained with the manufacturer).
-        \item \(c_R\): Retailer's cost.
-        \item \(\frac{D(\hat{p})}{D'(\hat{p})}\): Demand elasticity factor.
-    \end{itemize}
-    \vspace{0.5cm}
-    \textbf{Key insight:}
-    \begin{itemize}
-        \item Vertifical externality: when $\hat{w} > c_R$, the retailer's ignores the impact of its pricing on the manufacturer's profits.
-        \item If R makes TIOLI offer, $\hat{w} = c_M$ and $\hat{p} = c_M + c_R$.
-    \end{itemize}
-\end{frame}
-
-% Slide 5: Key Results and Insights
-\begin{frame}{Key Results and Insights}
-    \begin{itemize}
-        \item Double Marginalization Occurs:
-        \begin{itemize}
-            \item If \(b < 1\), the wholesale price \(\hat{w}\) exceeds the manufacturer's marginal cost (\(c_M\)).
-            \item Both the manufacturer and retailer add markups, inflating the retail price \(\hat{p}\).
-        \end{itemize}
-        \item Joint Profit is Not Maximized:
-        \begin{itemize}
-            \item High retail price reduces consumer demand.
-            \item Supply chain efficiency is reduced.
-        \end{itemize}
-        \item Effect of Bargaining Power (\(b\)):
-        \begin{itemize}
-            \item Higher \(b \Rightarrow \hat{w} \approx c_M\), reducing inefficiency.
-            \item Lower $b \Rightarrow$ Greater inefficiency.
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-
+    \end{frame}
+   
 % Slide 16: Nash-in-Nash Bargaining Model
 \begin{frame}{Nash-in-Nash Bargaining Model}
     \begin{itemize}
@@ -590,12 +448,15 @@
 % Slide 1: Health Insurer-Hospital Negotiations - Setup
 \begin{frame}{Health Insurer-Hospital Negotiations (Ho and Lee, 2017)}
     \begin{itemize}
-        \item Nash-in-Nash bargaining conditions govern hospital payments \(w_{ij}\), incorporating premiums \(\boldsymbol{p}\) as supply-side actions (first-order condition):
+        \item Nash-in-Nash bargaining conditions govern hospital payments \(w_{ij}\):
         \[
-        \widehat{w}_{ij} \times \bar{D}_{ij}(\cdot) = 
-        \left(1 - b_{ij}\right) \times \Delta_{ij} \Pi_{D_j}\left(\{w_{ij} = 0, \widehat{\mathbb{C}}_{-ij}\}, \widehat{\boldsymbol{p}}\right)
-        - b_{ij} \times \Delta_{ij} \Pi_{U_i}\left(\{w_{ij} = 0, \widehat{\mathbb{C}}_{-ij}\}, \widehat{\boldsymbol{p}}\right)
-        \]
+            \widehat{\mathbb{C}}_{ij} \in \arg \max_{\mathbb{C}_{ij} \in \mathcal{C}_{ij}^+(\widehat{\mathbb{C}}_{-ij})}  
+            \Bigg[
+            {\Delta_{ij} \Pi_{Dj}(\{\mathbb{C}_{ij}, \widehat{\mathbb{C}}_{-ij}\})}^{b_{ij}}
+            \cdot
+            {\Delta_{ij} \Pi_{Ui}(\{\mathbb{C}_{ij}, \widehat{\mathbb{C}}_{-ij}\})}^{1-b_{ij}}
+            \Bigg]
+            \]
         \item Terms in the equation:
         \begin{itemize}
             \item \(\bar{D}_{ij}(\cdot)\): Number of insurer \(j\)'s enrollees admitted to hospital \(i\).
@@ -605,6 +466,108 @@
         \end{itemize}
     \end{itemize}
 \end{frame}
+
+ 
+    % Slide 14: Modeling Contract Formation
+    \begin{frame}{Modeling Contract Formation}
+        \textbf{Choosing a Model:}
+        \begin{itemize}
+            \item The choice between TIOLI and Nash-in-Nash depends on:
+            \begin{itemize}
+                \item The \textbf{industry structure}: Is one party dominant, or do both have leverage?
+                \item The \textbf{availability of data}: Nash-in-Nash requires more detailed data to estimate bargaining power and disagreement payoffs.
+                \item The \textbf{research objective}: TIOLI is simpler and easier for theoretical models, while Nash-in-Nash is better for realistic and flexible modeling.
+            \end{itemize}
+        \end{itemize}
+        \end{frame}
+    
+    
+
+% Slide 1: Introduction to Double Marginalization
+\begin{frame}{What is Double Marginalization?}
+    \begin{itemize}
+        \item Occurs in supply chains where a \textbf{manufacturer} and \textbf{retailer} independently maximize profits.
+        \item Each adds a markup:
+        \begin{itemize}
+            \item Manufacturer marks up the wholesale price (\(w\)).
+            \item Retailer marks up the retail price (\(p\)).
+        \end{itemize}
+        \item Results in:
+        \begin{itemize}
+            \item Higher retail price (\(p\)) than optimal.
+            \item Reduced consumer demand.
+            \item Lower joint profits for the supply chain.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 2: Setup of the Problem
+\begin{frame}{Setup of the Problem}
+    \begin{itemize}
+        \item A \textbf{manufacturer} and \textbf{retailer} negotiate the wholesale price (\(w\)) using \textbf{Nash bargaining}.
+        \item The retailer simultaneously sets the retail price (\(p\)).
+        \item Key assumptions:
+        \begin{itemize}
+            \item Nash bargaining and retail pricing are \textbf{independent but simultaneous}.
+            \item The outcome depends on:
+            \begin{itemize}
+                \item Bargaining power (\(b\)) of the retailer.
+                \item Marginal costs of the manufacturer (\(c_M\)) and retailer (\(c_R\)).
+                \item Consumer demand (\(D(p)\)).
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Bargaining Equation
+\begin{frame}{Wholesale Price via Nash Bargaining}
+    \textbf{Nash bargaining condition:}
+    \[
+    \hat{w} = (1-b)(\hat{p} - c_R) + b c_M
+    \]
+    \begin{itemize}
+        \item \(b\): Retailer's bargaining power (\(0 \leq b \leq 1\)).
+        \item \(\hat{p}\): Retail price (set by the retailer).
+        \item \(c_R\): Retailer's cost of selling the product.
+        \item \(c_M\): Manufacturer's marginal cost of production.
+    \end{itemize}
+    \vspace{0.5cm}
+    \textbf{Key insights:}
+    \begin{itemize}
+        \item If \(b = 1\): \(\hat{w} = c_M\) (retailer pays only the marginal cost).
+        \item If \(b < 1\): \(\hat{w} > c_M\), leading to inefficiency (double marginalization).
+    \end{itemize}
+\end{frame}
+
+% Slide 4: Retailer's Pricing Equation
+\begin{frame}{Retail Price Setting}
+    \textbf{Key insight:}
+    \begin{itemize}
+        \item Vertifical externality: when $\hat{w} > c_R$, the retailer's ignores the impact of its pricing on the manufacturer's profits.
+        \item If R makes TIOLI offer, $\hat{w} = c_M$ and $\hat{p} = c_M + c_R$.
+    \end{itemize}
+\end{frame}
+
+% Slide 5: Key Results and Insights
+% \begin{frame}{Key Results and Insights}
+%     \begin{itemize}
+%         \item Double Marginalization Occurs:
+%         \begin{itemize}
+%             \item If \(b < 1\), the wholesale price \(\hat{w}\) exceeds the manufacturer's marginal cost (\(c_M\)).
+%             \item Both the manufacturer and retailer add markups, inflating the retail price \(\hat{p}\).
+%         \end{itemize}
+%         \item Joint Profit is Not Maximized:
+%         \begin{itemize}
+%             \item High retail price reduces consumer demand.
+%             \item Supply chain efficiency is reduced.
+%         \end{itemize}
+%         \item Effect of Bargaining Power (\(b\)):
+%         \begin{itemize}
+%             \item Higher \(b \Rightarrow \hat{w} \approx c_M\), reducing inefficiency.
+%             \item Lower $b \Rightarrow$ Greater inefficiency.
+%         \end{itemize}
+%     \end{itemize}
+% \end{frame}
 
 
 % Slide 19: Estimation and Identification
@@ -703,7 +666,6 @@
         \item Solution:
         \begin{itemize}
             \item Jointly estimate upstream and downstream demand.
-            \item Use techniques like Heckman correction or joint estimation of preferences.
         \end{itemize}
     \end{itemize}
 \end{frame}
